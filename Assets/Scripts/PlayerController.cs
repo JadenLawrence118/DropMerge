@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private GameObject[] toSpawn;
 
-    [SerializeField] private float dropYPos;
+    public float dropYPos;
     [SerializeField] private float dropMinX;
     [SerializeField] private float dropMaxX;
 

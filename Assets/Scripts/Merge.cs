@@ -8,6 +8,21 @@ public class Merge : MonoBehaviour
     public int MergeID;
     private bool running = false;
     [SerializeField] private int mergePoints;
+    private GameController controller;
+    private PlayerController player;
+
+    private void Awake()
+    {
+        controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+    }
+    private void Update()
+    {
+        if (transform.position.y > player.dropYPos)
+        {
+            controller.EndGame();
+        }
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -20,7 +35,7 @@ public class Merge : MonoBehaviour
                     running = true;
                     Vector3 mergePos = (collision.transform.position + transform.position) / 2;
                     Destroy(collision.gameObject);
-                    GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayerController>().MergeSpawn(MergeID + 1, mergePos, mergePoints);
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().MergeSpawn(MergeID + 1, mergePos, mergePoints);
                     Destroy(gameObject);
                 }
             }

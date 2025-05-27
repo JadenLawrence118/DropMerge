@@ -26,27 +26,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1922213161418958690, guid: f8fc1b5553371674bbcb7216bdb7737c, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 0.0014023781
       objectReference: {fileID: 0}
     - target: {fileID: 1922213161418958690, guid: f8fc1b5553371674bbcb7216bdb7737c, type: 3}
       propertyPath: m_Color.g
-      value: 0.6049769
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1922213161418958690, guid: f8fc1b5553371674bbcb7216bdb7737c, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2133637835691641933, guid: f8fc1b5553371674bbcb7216bdb7737c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2133637835691641933, guid: f8fc1b5553371674bbcb7216bdb7737c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2133637835691641933, guid: f8fc1b5553371674bbcb7216bdb7737c, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2133637835691641933, guid: f8fc1b5553371674bbcb7216bdb7737c, type: 3}
       propertyPath: m_LocalRotation.w
