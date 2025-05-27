@@ -1002,8 +1002,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toSpawn:
   - {fileID: 1227639710864549230, guid: d63fd7985d6607d4d8d63ff2f18862f0, type: 3}
-  - {fileID: 1013358027488407490, guid: ea57ca4ea4af4a64c8e0292e1a597d29, type: 3}
-  - {fileID: 1013358027488407490, guid: 2fc07f160f1ed7b4290f3bf344f04ef4, type: 3}
+  - {fileID: 1227639710864549230, guid: 24bb737e4ef4f804fbaabb3ebee4c1fd, type: 3}
+  - {fileID: 1227639710864549230, guid: 36dd3caa4a81fb74084a8b2aa4b5e3a1, type: 3}
+  - {fileID: 1227639710864549230, guid: b3bc66eee4274c644a766285242ff2d2, type: 3}
+  - {fileID: 1227639710864549230, guid: 372ef96dcec442d4f95e26b67e799121, type: 3}
   dropYPos: 4
   dropMinX: -1.6
   dropMaxX: 1.6

@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: mergePoints
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: -2706896484208045648, guid: f8fc1b5553371674bbcb7216bdb7737c, type: 3}
+      propertyPath: m_Mass
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 612809298591705200, guid: f8fc1b5553371674bbcb7216bdb7737c, type: 3}
       propertyPath: m_Name
       value: Circle1

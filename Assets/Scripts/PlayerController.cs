@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
         if (objectPos.x >= dropMinX && objectPos.x <= dropMaxX)
         {
             objectPos.y = dropYPos;
-            Instantiate(toSpawn[0], objectPos, Quaternion.identity, GameObject.Find("Balls").transform);
+            Instantiate(toSpawn[Random.Range(0, 3)], objectPos, Quaternion.identity, GameObject.Find("Balls").transform);
         }
     }
 

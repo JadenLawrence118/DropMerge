@@ -9,7 +9,7 @@ public class Merge : MonoBehaviour
     private bool running = false;
     [SerializeField] private int mergePoints;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!running)
         {

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: -2706896484208045648}
   - component: {fileID: 2594707187644119394}
   - component: {fileID: -4761825439320941797}
-  - component: {fileID: 392434559047620177}
   m_Layer: 0
   m_Name: CircleMASTER
   m_TagString: Mergeable
@@ -164,38 +163,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MergeID: 0
   mergePoints: 0
---- !u!58 &392434559047620177
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 612809298591705200}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.53
