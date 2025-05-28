@@ -5,9 +5,11 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     [SerializeField] private GameObject EndUI;
+    [SerializeField] private GameObject PauseUI;
     void Start()
     {
         EndUI.SetActive(false);
+        PauseUI.SetActive(false);
     }
 
     public void EndGame()

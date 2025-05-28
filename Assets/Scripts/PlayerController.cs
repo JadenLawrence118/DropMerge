@@ -14,7 +14,10 @@ public class PlayerController : MonoBehaviour
 
     private GameObject dropIndicator;
     [SerializeField] private GameObject[] spawnIndicators;
-    private int nextSpawn;
+    private int next1;
+
+    private GameObject nextIndicator;
+    private int next2;
 
     private int points = 0;
     [SerializeField] private TextMeshProUGUI scoreCounter;
@@ -25,8 +28,12 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         dropIndicator = GameObject.Find("PosIndicator");
-        nextSpawn = Random.Range(0, 3);
-        Instantiate(spawnIndicators[nextSpawn], dropIndicator.transform);
+        next1 = Random.Range(0, 3);
+        Instantiate(spawnIndicators[next1], dropIndicator.transform);
+
+        nextIndicator = GameObject.Find("NextUI");
+        next2 = Random.Range(0, 3);
+        Instantiate(spawnIndicators[next2], nextIndicator.transform);
     }
 
     void Update()
@@ -40,7 +47,10 @@ public class PlayerController : MonoBehaviour
         mousePos.z = 2.0f;
         Vector3 dropPos = Camera.main.ScreenToWorldPoint(mousePos);
         dropPos.y = dropYPos;
-        dropIndicator.transform.position = dropPos;
+        if (dropPos.x > dropMinX && dropPos.x < dropMaxX)
+        {
+            dropIndicator.transform.position = dropPos;
+        }
     }
 
     private void OnClick()
@@ -52,10 +62,14 @@ public class PlayerController : MonoBehaviour
         {
             canDrop = false;
             objectPos.y = dropYPos;
-            Instantiate(toSpawn[nextSpawn], objectPos, Quaternion.identity, GameObject.Find("Balls").transform);
-            nextSpawn = Random.Range(0, 3);
+            Instantiate(toSpawn[next1], objectPos, Quaternion.identity, GameObject.Find("Balls").transform);
+            next1 = next2;
+            next2 = Random.Range(0, 3);
             Destroy(dropIndicator.transform.GetChild(0).gameObject);
-            Instantiate(spawnIndicators[nextSpawn], dropIndicator.transform);
+            Instantiate(spawnIndicators[next1], dropIndicator.transform);
+            Destroy(nextIndicator.transform.GetChild(0).gameObject);
+            Instantiate(spawnIndicators[next2], nextIndicator.transform);
+            nextIndicator.transform.GetChild(0).gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             StartCoroutine(DropCooldown());
         }
     }
