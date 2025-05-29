@@ -36,7 +36,13 @@ public class Merge : MonoBehaviour
                     running = true;
                     Vector3 mergePos = (collision.transform.position + transform.position) / 2;
                     Destroy(collision.gameObject);
+
+                    // particles
+                    ParticleSystem.MainModule main = particles.main;
+                    main.startColor = new ParticleSystem.MinMaxGradient(GetComponent<SpriteRenderer>().color);
                     Instantiate(particles, mergePos, Quaternion.identity, GameObject.Find("ParticleStore").transform);
+
+                    // merge
                     GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().MergeSpawn(MergeID + 1, mergePos, mergePoints);
                     Destroy(gameObject);
                 }
