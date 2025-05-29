@@ -10,6 +10,7 @@ public class Merge : MonoBehaviour
     [SerializeField] private int mergePoints;
     private GameController controller;
     private PlayerController player;
+    [SerializeField] private ParticleSystem particles;
 
     private void Awake()
     {
@@ -35,6 +36,7 @@ public class Merge : MonoBehaviour
                     running = true;
                     Vector3 mergePos = (collision.transform.position + transform.position) / 2;
                     Destroy(collision.gameObject);
+                    Instantiate(particles, mergePos, Quaternion.identity, GameObject.Find("ParticleStore").transform);
                     GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().MergeSpawn(MergeID + 1, mergePos, mergePoints);
                     Destroy(gameObject);
                 }

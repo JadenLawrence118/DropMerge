@@ -163,3 +163,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MergeID: 0
   mergePoints: 0
+  particles: {fileID: 1064271959002757071, guid: 26fb66eb10ac50b47abc75eeb6e45719, type: 3}
