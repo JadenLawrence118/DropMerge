@@ -55,23 +55,21 @@ public class PlayerController : MonoBehaviour
 
     private void OnClick()
     {
-        Vector3 mousePos = Input.mousePosition;
-        mousePos.z = 2.0f;
-        Vector3 objectPos = Camera.main.ScreenToWorldPoint(mousePos);
-        if (objectPos.x >= dropMinX && objectPos.x <= dropMaxX)
-        {
-            canDrop = false;
-            objectPos.y = dropYPos;
-            Instantiate(toSpawn[next1], objectPos, Quaternion.identity, GameObject.Find("Balls").transform);
-            next1 = next2;
-            next2 = Random.Range(0, 3);
-            Destroy(dropIndicator.transform.GetChild(0).gameObject);
-            Instantiate(spawnIndicators[next1], dropIndicator.transform);
-            Destroy(nextIndicator.transform.GetChild(0).gameObject);
-            Instantiate(spawnIndicators[next2], nextIndicator.transform);
-            nextIndicator.transform.GetChild(0).gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-            StartCoroutine(DropCooldown());
-        }
+        canDrop = false;
+        Instantiate(toSpawn[next1], dropIndicator.transform.position, Quaternion.identity, GameObject.Find("Balls").transform);
+        NewBall();
+    }
+
+    public void NewBall()
+    {
+        next1 = next2;
+        next2 = Random.Range(0, 3);
+        Destroy(dropIndicator.transform.GetChild(0).gameObject);
+        Instantiate(spawnIndicators[next1], dropIndicator.transform);
+        Destroy(nextIndicator.transform.GetChild(0).gameObject);
+        Instantiate(spawnIndicators[next2], nextIndicator.transform);
+        nextIndicator.transform.GetChild(0).gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        StartCoroutine(DropCooldown());
     }
 
     public void MergeSpawn(int spawnID, Vector3 objectPos, int mergePoints)

@@ -359,12 +359,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 154394311}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.75, y: 4.44, z: 0.18757805}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -538.25, y: -1195.56, z: 0.18757805}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 993456177}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &168502554 stripped
 GameObject:
@@ -2259,7 +2259,7 @@ GameObject:
   - component: {fileID: 993456175}
   - component: {fileID: 993456174}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: GameUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2343,6 +2343,7 @@ RectTransform:
   - {fileID: 28846419}
   - {fileID: 1863453513}
   - {fileID: 1736477644}
+  - {fileID: 154394312}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4217,11 +4218,10 @@ SceneRoots:
   - {fileID: 521088114}
   - {fileID: 1916558932}
   - {fileID: 993456177}
-  - {fileID: 27720036}
-  - {fileID: 1767099712}
   - {fileID: 612714583}
-  - {fileID: 2115934239}
   - {fileID: 823023917}
-  - {fileID: 302945730}
+  - {fileID: 2115934239}
   - {fileID: 1751470918}
-  - {fileID: 154394312}
+  - {fileID: 302945730}
+  - {fileID: 1767099712}
+  - {fileID: 27720036}
