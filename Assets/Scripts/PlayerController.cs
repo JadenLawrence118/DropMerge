@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float dropMaxX;
     [SerializeField] private float dropMinY;
     [SerializeField] private float dropMaxY;
-    private bool canDrop;
+    private bool canDrop = false;
 
     [SerializeField] private GameObject dropIndicator;
     [SerializeField] private GameObject posIndicator;
@@ -28,6 +28,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float dropCooldown = 1;
     private bool onCooldown = false;
+
+    [SerializeField] private GameObject hold;
+    [SerializeField] private int holdID;
 
     private void Awake()
     {
@@ -52,16 +55,16 @@ public class PlayerController : MonoBehaviour
 
         if (dropPos.y > dropMinY && dropPos.y < dropMaxY)
         {
-            canDrop = true;
             dropPos.y = dropYPos;
             if (dropPos.x > dropMinX && dropPos.x < dropMaxX)
             {
+                canDrop = true;
                 dropIndicator.transform.position = dropPos;
             }
-        }
-        else
-        {
-            canDrop = false;
+            else
+            {
+                canDrop = false;
+            }
         }
     }
 
@@ -98,5 +101,25 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(dropCooldown);
         onCooldown = false;
+    }
+
+    public void Hold()
+    {
+        if (hold.transform.childCount == 0)
+        {
+            holdID = next1;
+            Instantiate(spawnIndicators[next1], hold.transform);
+            NewBall();
+        }
+        else
+        {
+            Destroy(hold.transform.GetChild(0).gameObject);
+            Instantiate(spawnIndicators[next1], hold.transform);
+            int transfer = next1;
+            next1 = holdID;
+            holdID = transfer;
+            Destroy(posIndicator.transform.GetChild(0).gameObject);
+            Instantiate(spawnIndicators[next1], posIndicator.transform);
+        }
     }
 }

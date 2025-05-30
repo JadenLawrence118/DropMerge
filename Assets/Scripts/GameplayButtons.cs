@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class GameplayButtons : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private PlayerController playerController;
+
+    private void Start()
     {
-        
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Hold()
     {
-        
+        playerController.Hold();
     }
 }
