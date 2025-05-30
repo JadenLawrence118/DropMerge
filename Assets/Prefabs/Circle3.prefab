@@ -25,6 +25,10 @@ PrefabInstance:
       value: Circle3
       objectReference: {fileID: 0}
     - target: {fileID: 1922213161418958690, guid: f8fc1b5553371674bbcb7216bdb7737c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8fc959a18f047e040991264befc9ab91, type: 3}
+    - target: {fileID: 1922213161418958690, guid: f8fc1b5553371674bbcb7216bdb7737c, type: 3}
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
