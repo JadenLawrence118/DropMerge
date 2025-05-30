@@ -4146,6 +4146,8 @@ MonoBehaviour:
   dropYPos: 3
   dropMinX: -1
   dropMaxX: 1
+  dropMinY: 1
+  dropMaxY: 4
   spawnIndicators:
   - {fileID: 8774423872487830694, guid: d1f7b24538f9a7145a9519f146e7abd3, type: 3}
   - {fileID: 8351749444047990665, guid: 6c8408081d457c542903cf6ef7750031, type: 3}

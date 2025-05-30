@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour
     public float dropYPos;
     [SerializeField] private float dropMinX;
     [SerializeField] private float dropMaxX;
+    [SerializeField] private float dropMinY;
+    [SerializeField] private float dropMaxY;
+    private bool canDrop;
 
     private GameObject dropIndicator;
     [SerializeField] private GameObject[] spawnIndicators;
@@ -23,7 +26,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreCounter;
 
     [SerializeField] private float dropCooldown = 1;
-    private bool canDrop = true;
+    private bool onCooldown = false;
 
     private void Awake()
     {
@@ -38,7 +41,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonUp(0) && canDrop)
+        if (Input.GetMouseButtonUp(0) && !onCooldown && canDrop)
         {
             OnClick();
         }
@@ -46,16 +49,25 @@ public class PlayerController : MonoBehaviour
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = 2.0f;
         Vector3 dropPos = Camera.main.ScreenToWorldPoint(mousePos);
-        dropPos.y = dropYPos;
-        if (dropPos.x > dropMinX && dropPos.x < dropMaxX)
+
+        if (dropPos.y > dropMinY && dropPos.y < dropMaxY)
         {
-            dropIndicator.transform.position = dropPos;
+            canDrop = true;
+            dropPos.y = dropYPos;
+            if (dropPos.x > dropMinX && dropPos.x < dropMaxX)
+            {
+                dropIndicator.transform.position = dropPos;
+            }
+        }
+        else
+        {
+            canDrop = false;
         }
     }
 
     private void OnClick()
     {
-        canDrop = false;
+        onCooldown = true;
         Instantiate(toSpawn[next1], dropIndicator.transform.position, Quaternion.identity, GameObject.Find("Balls").transform);
         NewBall();
     }
@@ -85,6 +97,6 @@ public class PlayerController : MonoBehaviour
     IEnumerator DropCooldown()
     {
         yield return new WaitForSeconds(dropCooldown);
-        canDrop = true;
+        onCooldown = false;
     }
 }
