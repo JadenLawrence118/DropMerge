@@ -15,7 +15,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float dropMaxY;
     private bool canDrop;
 
-    private GameObject dropIndicator;
+    [SerializeField] private GameObject dropIndicator;
+    [SerializeField] private GameObject posIndicator;
     [SerializeField] private GameObject[] spawnIndicators;
     private int next1;
 
@@ -30,9 +31,8 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        dropIndicator = GameObject.Find("PosIndicator");
         next1 = Random.Range(0, 3);
-        Instantiate(spawnIndicators[next1], dropIndicator.transform);
+        Instantiate(spawnIndicators[next1], posIndicator.transform);
 
         nextIndicator = GameObject.Find("NextUI");
         next2 = Random.Range(0, 3);
@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
     private void OnClick()
     {
         onCooldown = true;
-        Instantiate(toSpawn[next1], dropIndicator.transform.position, Quaternion.identity, GameObject.Find("Balls").transform);
+        Instantiate(toSpawn[next1], posIndicator.transform.position, Quaternion.identity, GameObject.Find("Balls").transform);
         NewBall();
     }
 
@@ -76,8 +76,8 @@ public class PlayerController : MonoBehaviour
     {
         next1 = next2;
         next2 = Random.Range(0, 3);
-        Destroy(dropIndicator.transform.GetChild(0).gameObject);
-        Instantiate(spawnIndicators[next1], dropIndicator.transform);
+        Destroy(posIndicator.transform.GetChild(0).gameObject);
+        Instantiate(spawnIndicators[next1], posIndicator.transform);
         Destroy(nextIndicator.transform.GetChild(0).gameObject);
         Instantiate(spawnIndicators[next2], nextIndicator.transform);
         nextIndicator.transform.GetChild(0).gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
