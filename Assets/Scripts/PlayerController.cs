@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     private GameObject nextIndicator;
     private int next2;
 
-    private int points = 0;
+    public int points = 0;
     [SerializeField] private TextMeshProUGUI scoreCounter;
 
     [SerializeField] private float dropCooldown = 1;
@@ -65,6 +65,10 @@ public class PlayerController : MonoBehaviour
             {
                 canDrop = false;
             }
+        }
+        else
+        {
+            canDrop = false;
         }
     }
 

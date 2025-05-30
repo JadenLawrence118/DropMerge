@@ -8,22 +8,7 @@ public class Merge : MonoBehaviour
     public int MergeID;
     private bool running = false;
     [SerializeField] private int mergePoints;
-    private GameController controller;
-    private PlayerController player;
     [SerializeField] private ParticleSystem particles;
-
-    private void Awake()
-    {
-        controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-    }
-    private void Update()
-    {
-        if (transform.position.y > player.dropYPos)
-        {
-            controller.EndGame();
-        }
-    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
