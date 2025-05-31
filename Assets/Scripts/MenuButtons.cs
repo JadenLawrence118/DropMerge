@@ -11,7 +11,7 @@ public class MenuButtons : MonoBehaviour
     public void Play()
     {
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
 
     public void Pause()
@@ -31,6 +31,6 @@ public class MenuButtons : MonoBehaviour
     public void Home()
     {
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 }
