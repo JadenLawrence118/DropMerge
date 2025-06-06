@@ -33,4 +33,34 @@ public class MenuButtons : MonoBehaviour
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(1);
     }
+
+    public void instrForward()
+    {
+        InstrHandler controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<InstrHandler>();
+
+        if (controller.InstructionCount < controller.Instructions.Length - 1)
+        {
+            controller.InstructionCount++;
+        }
+        else
+        {
+            controller.InstructionCount = 0;
+        }
+        controller.UpdateInstr();
+    }
+
+    public void instrBack()
+    {
+        InstrHandler controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<InstrHandler>();
+
+        if (controller.InstructionCount > 0)
+        {
+            controller.InstructionCount--;
+        }
+        else
+        {
+            controller.InstructionCount = controller.Instructions.Length - 1;
+        }
+        controller.UpdateInstr();
+    }
 }
