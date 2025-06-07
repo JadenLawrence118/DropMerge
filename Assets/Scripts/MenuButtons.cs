@@ -34,6 +34,16 @@ public class MenuButtons : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void OpenInstr()
+    {
+        SceneManager.LoadScene(3);
+    }
+
+    public void OpenSettings()
+    {
+        SceneManager.LoadScene(4);
+    }
+
     public void instrForward()
     {
         InstrHandler controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<InstrHandler>();
