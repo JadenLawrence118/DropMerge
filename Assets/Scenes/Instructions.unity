@@ -3186,7 +3186,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The HOLD button lets you hold your current candy. If you are already holding
+  m_text: The HOLD button lets you store your current candy. If you are already holding
     a candy, it will be swapped with your current one
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 911ef34ad039ee24093ccd2f62244020, type: 2}
