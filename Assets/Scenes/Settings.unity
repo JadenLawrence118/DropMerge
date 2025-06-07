@@ -601,12 +601,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1732055652}
-  - {fileID: 1920372034}
-  - {fileID: 1047030582}
   - {fileID: 1695819576}
   - {fileID: 1272964373}
   - {fileID: 1144696479}
   - {fileID: 934283154}
+  - {fileID: 1920372034}
+  - {fileID: 1047030582}
   - {fileID: 231109309}
   - {fileID: 1339737157}
   m_Father: {fileID: 0}
