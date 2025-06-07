@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class GameController : MonoBehaviour
 {
     [SerializeField] private GameObject EndUI;
+    [SerializeField] private GameObject EndBack;
     [SerializeField] private GameObject PauseUI;
     [SerializeField] private TextMeshProUGUI EndScore;
     [SerializeField] private TextMeshProUGUI HighScore;
@@ -16,6 +18,14 @@ public class GameController : MonoBehaviour
 
         EndUI.SetActive(false);
         PauseUI.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            EndGame();
+        }
     }
 
     public void EndGame()
@@ -30,5 +40,6 @@ public class GameController : MonoBehaviour
 
         playerController.enabled = false;
         EndUI.SetActive(true);
+        EndBack.GetComponent<PlayableDirector>().Play();
     }
 }
