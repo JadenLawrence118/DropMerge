@@ -8,7 +8,8 @@ using UnityEngine.UI;
 
 public class MenuButtons : MonoBehaviour
 {
-    [SerializeField] GameObject pauseMenu;
+    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject settingsMenu;
     public void Play()
     {
         if (GameObject.FindGameObjectWithTag("GameController").GetComponent<FadeOutHandler>() != null)
@@ -58,6 +59,18 @@ public class MenuButtons : MonoBehaviour
     public void OpenSettings()
     {
         StartCoroutine(FadeAndSwitch(4, GameObject.FindGameObjectWithTag("GameController").GetComponent<FadeOutHandler>().fadeToWhite));
+    }
+
+    public void PauseSettings()
+    {
+        pauseMenu.SetActive(false);
+        settingsMenu.SetActive(true);
+    }
+
+    public void SettingsBack()
+    {
+        pauseMenu.SetActive(true);
+        settingsMenu.SetActive(false);
     }
 
     public void instrForward()

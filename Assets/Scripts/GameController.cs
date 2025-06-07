@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject EndUI;
     [SerializeField] private GameObject EndBack;
     [SerializeField] private GameObject PauseUI;
+    [SerializeField] private GameObject SettingsUI;
     [SerializeField] private TextMeshProUGUI EndScore;
     [SerializeField] private TextMeshProUGUI HighScore;
     private PlayerController playerController;
@@ -18,6 +19,7 @@ public class GameController : MonoBehaviour
 
         EndUI.SetActive(false);
         PauseUI.SetActive(false);
+        SettingsUI.SetActive(false);
     }
 
     private void Update()
