@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SettingsButtons : MonoBehaviour
 {
@@ -30,5 +31,25 @@ public class SettingsButtons : MonoBehaviour
     public void OK()
     {
         controller.OKWindow.SetActive(false);
+    }
+
+    public void ChangeMusic()
+    {
+        PlayerPrefs.SetFloat("musicVol", GetComponent<Slider>().value);
+
+        for (int i = 0; i < FindObjectsOfType<AudioHandler>().Length; i++)
+        {
+            FindObjectsOfType<AudioHandler>()[i].UpdateAudio();
+        }
+    }
+
+    public void ChangeSFX()
+    {
+        PlayerPrefs.SetFloat("SFXVol", GetComponent<Slider>().value);
+
+        for (int i = 0; i < FindObjectsOfType<AudioHandler>().Length; i++)
+        {
+            FindObjectsOfType<AudioHandler>()[i].UpdateAudio();
+        }
     }
 }
