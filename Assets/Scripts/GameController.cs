@@ -12,12 +12,16 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject SettingsUI;
     [SerializeField] private TextMeshProUGUI EndScore;
     [SerializeField] private TextMeshProUGUI HighScore;
+    public GameObject restartWindow;
+    public GameObject homeWindow;
     private PlayerController playerController;
     void Start()
     {
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 
         EndUI.SetActive(false);
+        restartWindow.SetActive(false);
+        homeWindow.SetActive(false);
         PauseUI.SetActive(false);
         SettingsUI.SetActive(false);
     }
