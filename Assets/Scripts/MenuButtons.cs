@@ -37,6 +37,30 @@ public class MenuButtons : MonoBehaviour
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().enabled = true;
     }
 
+    public void Back()
+    {
+        if (GameObject.FindGameObjectWithTag("GameController").GetComponent<FadeOutHandler>() != null)
+        {
+            StartCoroutine(FadeAndSwitch(SceneManager.GetActiveScene().buildIndex - 1, GameObject.FindGameObjectWithTag("GameController").GetComponent<FadeOutHandler>().fadeToWhite));
+        }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        }
+    }
+
+    public void OpenAdvancedSettings()
+    {
+        if (GameObject.FindGameObjectWithTag("GameController").GetComponent<FadeOutHandler>() != null)
+        {
+            StartCoroutine(FadeAndSwitch(5, GameObject.FindGameObjectWithTag("GameController").GetComponent<FadeOutHandler>().fadeToWhite));
+        }
+        else
+        {
+            SceneManager.LoadScene(5);
+        }
+    }
+
     public void Home()
     {
         Time.timeScale = 1.0f;

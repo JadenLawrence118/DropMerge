@@ -52,4 +52,21 @@ public class SettingsButtons : MonoBehaviour
             FindObjectsOfType<AudioHandler>()[i].UpdateAudio();
         }
     }
+
+    public void AddDroppable()
+    {
+        if (PlayerPrefs.GetInt("maxDropCandy", 3) < 5)
+        {
+            PlayerPrefs.SetInt("maxDropCandy", PlayerPrefs.GetInt("maxDropCandy") + 1);
+            GameObject.Find("Panel").GetComponent<DroppableCandies>().ManualUpdate();
+        }
+    }
+    public void SubDroppable()
+    {
+        if (PlayerPrefs.GetInt("maxDropCandy", 3) > 1)
+        {
+            PlayerPrefs.SetInt("maxDropCandy", PlayerPrefs.GetInt("maxDropCandy") - 1);
+            GameObject.Find("Panel").GetComponent<DroppableCandies>().ManualUpdate();
+        }
+    }
 }

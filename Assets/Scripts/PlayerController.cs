@@ -82,7 +82,7 @@ public class PlayerController : MonoBehaviour
     public void NewBall()
     {
         next1 = next2;
-        next2 = Random.Range(0, 3);
+        next2 = Random.Range(0, PlayerPrefs.GetInt("maxDropCandy", 3));
         Destroy(posIndicator.transform.GetChild(0).gameObject);
         Instantiate(spawnIndicators[next1], posIndicator.transform);
         Destroy(nextIndicator.transform.GetChild(0).gameObject);
