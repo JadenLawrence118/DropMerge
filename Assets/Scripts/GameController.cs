@@ -14,6 +14,9 @@ public class GameController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI EndScore;
     [SerializeField] private TextMeshProUGUI HighScore;
 
+    [SerializeField] private UnityEngine.UI.Slider musicSlider;
+    [SerializeField] private UnityEngine.UI.Slider SFXSlider;
+
     public GameObject restartWindow;
     public GameObject homeWindow;
 
@@ -30,6 +33,8 @@ public class GameController : MonoBehaviour
         homeWindow.SetActive(false);
         PauseUI.SetActive(false);
         SettingsUI.SetActive(false);
+        musicSlider.value = PlayerPrefs.GetFloat("musicVol", 1.0f);
+        SFXSlider.value = PlayerPrefs.GetFloat("SFXVol", 1.0f);
 
         for (int i = 0; i < jars.Length; i++)
         {
