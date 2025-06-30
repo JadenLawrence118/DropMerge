@@ -159,6 +159,36 @@ public class MenuButtons : MonoBehaviour
         controller.UpdateInstr();
     }
 
+    public void jarsForward()
+    {
+        CosmeticsHandler controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<CosmeticsHandler>();
+
+        if (controller.JarCount < controller.Jars.Length - 1)
+        {
+            controller.JarCount++;
+        }
+        else
+        {
+            controller.JarCount = 0;
+        }
+        controller.UpdateJar();
+    }
+
+    public void jarsBack()
+    {
+        CosmeticsHandler controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<CosmeticsHandler>();
+
+        if (controller.JarCount > 0)
+        {
+            controller.JarCount--;
+        }
+        else
+        {
+            controller.JarCount = controller.Jars.Length - 1;
+        }
+        controller.UpdateJar();
+    }
+
     IEnumerator FadeAndSwitch(int newScene, GameObject whitePanel)
     {
         GameObject.FindGameObjectWithTag("GameController").GetComponent<FadeOutHandler>().FadeOut();

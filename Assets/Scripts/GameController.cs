@@ -10,11 +10,17 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject EndBack;
     [SerializeField] private GameObject PauseUI;
     [SerializeField] private GameObject SettingsUI;
+
     [SerializeField] private TextMeshProUGUI EndScore;
     [SerializeField] private TextMeshProUGUI HighScore;
+
     public GameObject restartWindow;
     public GameObject homeWindow;
+
     private PlayerController playerController;
+
+    [SerializeField] private GameObject[] jars;
+
     void Start()
     {
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
@@ -24,6 +30,12 @@ public class GameController : MonoBehaviour
         homeWindow.SetActive(false);
         PauseUI.SetActive(false);
         SettingsUI.SetActive(false);
+
+        for (int i = 0; i < jars.Length; i++)
+        {
+            jars[i].SetActive(false);
+        }
+        jars[PlayerPrefs.GetInt("JarNo", 0)].SetActive(true);
     }
 
     private void Update()

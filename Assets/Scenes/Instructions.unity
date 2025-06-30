@@ -5086,7 +5086,8 @@ PrefabInstance:
       value: Jar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5904669398700258038, guid: 06a0bf18803e52f47809ae572dc7c558, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06a0bf18803e52f47809ae572dc7c558, type: 3}
