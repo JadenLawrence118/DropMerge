@@ -189,6 +189,64 @@ public class MenuButtons : MonoBehaviour
         controller.UpdateJar();
     }
 
+    public void purchaseEnable()
+    {
+        CosmeticsHandler controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<CosmeticsHandler>();
+
+        if (GetComponent<Purchasable>().jar)
+        {
+            switch (controller.JarCount)
+            {
+                case 0:
+                    PlayerPrefs.SetInt("JarNo", 0);
+                    gameObject.SetActive(false);
+                    break;
+                case 1:
+                    if (PlayerPrefs.GetInt("Jar1", 0) < 1)
+                    {
+                        if (PlayerPrefs.GetInt("points", 0) >= controller.jar1Cost)
+                        {
+                            controller.confirmPanel.SetActive(true);
+                            controller.confirmButton.GetComponent<Button>().onClick.RemoveAllListeners();
+                            controller.confirmButton.GetComponent<Button>().onClick.AddListener(jarsConfirm);
+                        }
+                    }
+                    else
+                    {
+                        PlayerPrefs.SetInt("JarNo", 1);
+                        gameObject.SetActive(false);
+                    }
+                    break;
+                default:
+                    PlayerPrefs.SetInt("JarNo", 0);
+                    gameObject.SetActive(false);
+                    break;
+            }
+        }
+        else if (GetComponent<Purchasable>().theme)
+        {
+
+        }
+    }
+
+    public void jarsConfirm()
+    {
+        CosmeticsHandler controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<CosmeticsHandler>();
+        
+        PlayerPrefs.SetInt("Jar1", 1);
+        PlayerPrefs.SetInt("points", PlayerPrefs.GetInt("points", 0) - controller.jar1Cost);
+        controller.pointsText.text = "Available Points: " + PlayerPrefs.GetInt("points", 0).ToString();
+        PlayerPrefs.SetInt("JarNo", 1);
+        controller.confirmPanel.SetActive(false);
+        gameObject.SetActive(false);
+        controller.costPanel.SetActive(false);
+    }
+
+    public void jarsReject()
+    {
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<CosmeticsHandler>().confirmPanel.SetActive(false);
+    }
+
     IEnumerator FadeAndSwitch(int newScene, GameObject whitePanel)
     {
         GameObject.FindGameObjectWithTag("GameController").GetComponent<FadeOutHandler>().FadeOut();
