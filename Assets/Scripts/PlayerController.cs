@@ -9,10 +9,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject[] toSpawn;
 
     public float dropYPos;
-    [SerializeField] private float dropMinX;
-    [SerializeField] private float dropMaxX;
+    [SerializeField] private float[] minXArray;
+    [SerializeField] private float[] MaxXArray;
     [SerializeField] private float dropMinY;
     [SerializeField] private float dropMaxY;
+
+    private float dropMinX;
+    private float dropMaxX;
+
     private bool canDrop = false;
 
     [SerializeField] private GameObject dropIndicator;
@@ -39,6 +43,9 @@ public class PlayerController : MonoBehaviour
         nextIndicator = GameObject.Find("NextUI");
         next2 = Random.Range(0, PlayerPrefs.GetInt("maxDropCandy", 3));
         Instantiate(spawnIndicators[next2], nextIndicator.transform);
+
+        dropMinX = minXArray[PlayerPrefs.GetInt("JarNo", 0)];
+        dropMaxX = MaxXArray[PlayerPrefs.GetInt("JarNo", 0)];
     }
 
     void Update()
