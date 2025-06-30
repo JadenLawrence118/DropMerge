@@ -26,7 +26,6 @@ public class PlayerController : MonoBehaviour
     public int points = 0;
     [SerializeField] private TextMeshProUGUI scoreCounter;
 
-    [SerializeField] private float dropCooldown = 1;
     private bool onCooldown = false;
 
     [SerializeField] private GameObject hold;
@@ -103,7 +102,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator DropCooldown()
     {
-        yield return new WaitForSeconds(dropCooldown);
+        yield return new WaitForSeconds(PlayerPrefs.GetFloat("dropDelay", 0.5f));
         onCooldown = false;
     }
 

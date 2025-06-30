@@ -25,6 +25,5 @@ public class DroppableCandies : MonoBehaviour
                 droppableImages[i].gameObject.SetActive(false);
             }
         }
-        print(PlayerPrefs.GetInt("maxDropCandy", 3));
     }
 }
