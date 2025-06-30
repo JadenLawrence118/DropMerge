@@ -34,11 +34,11 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        next1 = Random.Range(0, 3);
+        next1 = Random.Range(0, PlayerPrefs.GetInt("maxDropCandy", 3));
         Instantiate(spawnIndicators[next1], posIndicator.transform);
 
         nextIndicator = GameObject.Find("NextUI");
-        next2 = Random.Range(0, 3);
+        next2 = Random.Range(0, PlayerPrefs.GetInt("maxDropCandy", 3));
         Instantiate(spawnIndicators[next2], nextIndicator.transform);
     }
 
