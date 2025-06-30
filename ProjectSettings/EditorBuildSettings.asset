@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PlaySettings.unity
     guid: b666537761ef1034d9dfb7475638fc47
+  - enabled: 1
+    path: Assets/Scenes/Cosmetics.unity
+    guid: 88b1ba593f006bf448c0cd4f38503b46
   m_configObjects: {}

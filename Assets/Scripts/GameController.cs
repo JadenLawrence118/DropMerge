@@ -43,6 +43,7 @@ public class GameController : MonoBehaviour
 
         EndScore.text = "Score: " + playerController.points;
         HighScore.text = "High Score: " + PlayerPrefs.GetInt("HighScore");
+        PlayerPrefs.SetInt("points", PlayerPrefs.GetInt("points", 0) + playerController.points);
 
         playerController.enabled = false;
         EndUI.SetActive(true);

@@ -69,18 +69,6 @@ public class MenuButtons : MonoBehaviour
         }
     }
 
-    public void OpenAdvancedSettings()
-    {
-        if (GameObject.FindGameObjectWithTag("GameController").GetComponent<FadeOutHandler>() != null)
-        {
-            StartCoroutine(FadeAndSwitch(5, GameObject.FindGameObjectWithTag("GameController").GetComponent<FadeOutHandler>().fadeToWhite));
-        }
-        else
-        {
-            SceneManager.LoadScene(5);
-        }
-    }
-
     public void Home()
     {
         Time.timeScale = 1.0f;
@@ -103,6 +91,30 @@ public class MenuButtons : MonoBehaviour
     public void OpenSettings()
     {
         StartCoroutine(FadeAndSwitch(4, GameObject.FindGameObjectWithTag("GameController").GetComponent<FadeOutHandler>().fadeToWhite));
+    }
+
+    public void OpenAdvancedSettings()
+    {
+        if (GameObject.FindGameObjectWithTag("GameController").GetComponent<FadeOutHandler>() != null)
+        {
+            StartCoroutine(FadeAndSwitch(5, GameObject.FindGameObjectWithTag("GameController").GetComponent<FadeOutHandler>().fadeToWhite));
+        }
+        else
+        {
+            SceneManager.LoadScene(5);
+        }
+    }
+
+    public void OpenCosmetics()
+    {
+        if (GameObject.FindGameObjectWithTag("GameController").GetComponent<FadeOutHandler>() != null)
+        {
+            StartCoroutine(FadeAndSwitch(6, GameObject.FindGameObjectWithTag("GameController").GetComponent<FadeOutHandler>().fadeToWhite));
+        }
+        else
+        {
+            SceneManager.LoadScene(6);
+        }
     }
 
     public void PauseSettings()
