@@ -1314,6 +1314,10 @@ PrefabInstance:
       value: Gameplay Options
       objectReference: {fileID: 0}
     - target: {fileID: 963385204053821829, guid: b3b31042f9a828f4ab3dc3a91e5db7ee, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 911ef34ad039ee24093ccd2f62244020, type: 2}
+    - target: {fileID: 963385204053821829, guid: b3b31042f9a828f4ab3dc3a91e5db7ee, type: 3}
       propertyPath: m_fontColor.b
       value: 1
       objectReference: {fileID: 0}
@@ -1326,8 +1330,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 963385204053821829, guid: b3b31042f9a828f4ab3dc3a91e5db7ee, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6824027193634268840, guid: 911ef34ad039ee24093ccd2f62244020, type: 2}
+    - target: {fileID: 963385204053821829, guid: b3b31042f9a828f4ab3dc3a91e5db7ee, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 963385204053821829, guid: b3b31042f9a828f4ab3dc3a91e5db7ee, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1694295012427489282, guid: b3b31042f9a828f4ab3dc3a91e5db7ee, type: 3}
       propertyPath: m_Name
@@ -1387,7 +1399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7791858507877394505, guid: b3b31042f9a828f4ab3dc3a91e5db7ee, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 711.2
+      value: 750
       objectReference: {fileID: 0}
     - target: {fileID: 7791858507877394505, guid: b3b31042f9a828f4ab3dc3a91e5db7ee, type: 3}
       propertyPath: m_SizeDelta.y
