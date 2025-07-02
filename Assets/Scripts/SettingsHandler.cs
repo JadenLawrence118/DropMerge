@@ -15,10 +15,15 @@ public class SettingsHandler : MonoBehaviour
 
     private void Awake()
     {
-        confirmWindow.SetActive(false);
-        OKWindow.SetActive(false);
         HighScore.text = "High Score: " + PlayerPrefs.GetInt("HighScore");
         musicSlider.value = PlayerPrefs.GetFloat("musicVol", 1.0f);
         SFXSlider.value = PlayerPrefs.GetFloat("SFXVol", 1.0f);
+    }
+
+    private void Start()
+    {
+        GameObject.FindGameObjectWithTag("ThemeController").GetComponent<ThemeController>().UpdateTheme(PlayerPrefs.GetInt("theme", -1));
+        confirmWindow.SetActive(false);
+        OKWindow.SetActive(false);
     }
 }

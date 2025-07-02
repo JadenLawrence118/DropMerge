@@ -7,8 +7,9 @@ public class InstrHandler : MonoBehaviour
     public GameObject[] Instructions;
     public int InstructionCount = 1;
 
-    private void Awake()
+    private void Start()
     {
+        GameObject.FindGameObjectWithTag("ThemeController").GetComponent<ThemeController>().UpdateTheme(PlayerPrefs.GetInt("theme", -1));
         UpdateInstr();
     }
 

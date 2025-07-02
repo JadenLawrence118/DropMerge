@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,13 +16,13 @@ public class ObjectTheme : MonoBehaviour
         {
             defaultColour = GetComponent<Image>().color;
         }
-        else if (GetComponent<Text>() != null)
+        else if (GetComponent<TextMeshProUGUI>() != null)
         {
-            defaultColour = GetComponent<Text>().color;
+            defaultColour = GetComponent<TextMeshProUGUI>().color;
         }
-        else if (GetComponent<Renderer>() != null)
+        else if (GetComponent<SpriteRenderer>() != null)
         {
-            defaultColour = GetComponent<Renderer>().material.color;
+            defaultColour = GetComponent<SpriteRenderer>().color;
         }
     }
 
@@ -32,13 +33,13 @@ public class ObjectTheme : MonoBehaviour
             GetComponent<Image>().color = newColour;
 
         }
-        else if (GetComponent<Text>() != null)
+        else if (GetComponent<TextMeshProUGUI>() != null)
         {
-            GetComponent<Text>().color = newColour;
+            GetComponent<TextMeshProUGUI>().color = newColour;
         }
-        else if (GetComponent<Renderer>() != null)
+        else if (GetComponent<SpriteRenderer>() != null)
         {
-            GetComponent<Renderer>().material.color = newColour;
+            GetComponent<SpriteRenderer>().color = newColour;
         }
     }
 
@@ -48,13 +49,13 @@ public class ObjectTheme : MonoBehaviour
         {
             GetComponent<Image>().color = defaultColour;
         }
-        else if (GetComponent<Text>() != null)
+        else if (GetComponent<TextMeshProUGUI>() != null)
         {
-            GetComponent<Text>().color = defaultColour;
+            GetComponent<TextMeshProUGUI>().color = defaultColour;
         }
-        else if (GetComponent<Renderer>() != null)
+        else if (GetComponent<SpriteRenderer>() != null)
         {
-            GetComponent<Renderer>().material.color = defaultColour;
+            GetComponent<SpriteRenderer>().color = defaultColour;
         }
     }
 }

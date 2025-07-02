@@ -31,19 +31,18 @@ public class CosmeticsHandler : MonoBehaviour
 
     void Awake()
     {
-        confirmPanel.SetActive(false);
-
         pointsText.text = "Available Points: " + PlayerPrefs.GetInt("points", 0).ToString();
 
         JarCount = PlayerPrefs.GetInt("JarNo", 0);
         ThemeCount = PlayerPrefs.GetInt("theme", -1);
-        UpdateJar();
-        UpdateTheme();
     }
 
     private void Start()
     {
         GameObject.FindGameObjectWithTag("ThemeController").GetComponent<ThemeController>().UpdateTheme(PlayerPrefs.GetInt("theme", -1));
+        confirmPanel.SetActive(false);
+        UpdateJar();
+        UpdateTheme();
     }
 
     public void UpdateJar()

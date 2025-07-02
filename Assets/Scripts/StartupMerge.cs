@@ -8,6 +8,11 @@ using UnityEngine.UI;
 
 public class StartupMerge : MonoBehaviour
 {
+    private void Start()
+    {
+        GameObject.FindGameObjectWithTag("ThemeController").GetComponent<ThemeController>().UpdateTheme(PlayerPrefs.GetInt("theme", -1));
+    }
+
     [SerializeField] private ParticleSystem particles;
     private bool complete = false;
     [SerializeField] private GameObject whitePanel;

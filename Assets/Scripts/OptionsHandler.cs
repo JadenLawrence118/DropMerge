@@ -5,8 +5,9 @@ using UnityEngine;
 public class OptionsHandler : MonoBehaviour
 {
     [SerializeField] private GameObject infoPanel;
-    void Awake()
+    private void Start()
     {
+        GameObject.FindGameObjectWithTag("ThemeController").GetComponent<ThemeController>().UpdateTheme(PlayerPrefs.GetInt("theme", -1));
         infoPanel.SetActive(false);
     }
 }

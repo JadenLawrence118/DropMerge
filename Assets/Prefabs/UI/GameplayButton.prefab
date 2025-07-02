@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 253401601946651397}
   - component: {fileID: 6989913881667786529}
   - component: {fileID: 5637693441166817147}
+  - component: {fileID: -4665141627755598751}
   m_Layer: 5
   m_Name: GameplayButton
   m_TagString: Untagged
@@ -271,6 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
+  settingsMenu: {fileID: 0}
 --- !u!320 &6989913881667786529
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -311,3 +313,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-4665141627755598751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7025377793465176921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688c86f1dd142be42a2f8fd7893162e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  themeID: 0
