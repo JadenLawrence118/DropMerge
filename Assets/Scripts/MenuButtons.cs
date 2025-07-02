@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -189,6 +190,38 @@ public class MenuButtons : MonoBehaviour
         controller.UpdateJar();
     }
 
+    public void themeForward()
+    {
+        CosmeticsHandler controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<CosmeticsHandler>();
+
+        if (controller.ThemeCount < controller.Themes.Length - 2)
+        {
+            controller.ThemeCount++;
+        }
+        else
+        {
+            controller.ThemeCount = -1;
+        }
+        controller.UpdateTheme();
+        GameObject.FindGameObjectWithTag("ThemeController").GetComponent<ThemeController>().UpdateTheme(controller.ThemeCount);
+    }
+
+    public void themeBack()
+    {
+        CosmeticsHandler controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<CosmeticsHandler>();
+
+        if (controller.ThemeCount > -1)
+        {
+            controller.ThemeCount--;
+        }
+        else
+        {
+            controller.ThemeCount = controller.Themes.Length - 2;
+        }
+        controller.UpdateTheme();
+        GameObject.FindGameObjectWithTag("ThemeController").GetComponent<ThemeController>().UpdateTheme(controller.ThemeCount);
+    }
+
     public void purchaseEnable()
     {
         CosmeticsHandler controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<CosmeticsHandler>();
@@ -208,7 +241,7 @@ public class MenuButtons : MonoBehaviour
                         {
                             controller.confirmPanel.SetActive(true);
                             controller.confirmButton.GetComponent<Button>().onClick.RemoveAllListeners();
-                            controller.confirmButton.GetComponent<Button>().onClick.AddListener(jarsConfirm);
+                            controller.confirmButton.GetComponent<Button>().onClick.AddListener(() => jarsConfirm(1, controller.jar1Cost));
                         }
                     }
                     else
@@ -225,24 +258,82 @@ public class MenuButtons : MonoBehaviour
         }
         else if (GetComponent<Purchasable>().theme)
         {
+            switch (controller.ThemeCount + 1)
+            {
+                case 0:
+                    PlayerPrefs.SetInt("theme", -1);
+                    gameObject.SetActive(false);
+                    break;
 
+                case 1:
+                    if (PlayerPrefs.GetInt("Theme1", 0) < 1)
+                    {
+                        if (PlayerPrefs.GetInt("points", 0) >= controller.theme1Cost)
+                        {
+                            controller.confirmPanel.SetActive(true);
+                            controller.confirmButton.GetComponent<Button>().onClick.RemoveAllListeners();
+                            controller.confirmButton.GetComponent<Button>().onClick.AddListener(() => themesConfirm(controller.theme1Cost));
+                        }
+                    }
+                    else
+                    {
+                        PlayerPrefs.SetInt("theme", 0);
+                        gameObject.SetActive(false);
+                    }
+                    break;
+
+                case 2:
+                    if (PlayerPrefs.GetInt("Theme2", 0) < 1)
+                    {
+                        if (PlayerPrefs.GetInt("points", 0) >= controller.theme2Cost)
+                        {
+                            controller.confirmPanel.SetActive(true);
+                            controller.confirmButton.GetComponent<Button>().onClick.RemoveAllListeners();
+                            controller.confirmButton.GetComponent<Button>().onClick.AddListener(() => themesConfirm(controller.theme2Cost));
+                        }
+                    }
+                    else
+                    {
+                        PlayerPrefs.SetInt("theme", 1);
+                        gameObject.SetActive(false);
+                    }
+                    break;
+
+                default:
+                    PlayerPrefs.SetInt("theme", -1);
+                    gameObject.SetActive(false);
+                    break;
+            }
         }
     }
 
-    public void jarsConfirm()
+    public void jarsConfirm(int jarNo, int price)
     {
         CosmeticsHandler controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<CosmeticsHandler>();
         
-        PlayerPrefs.SetInt("Jar1", 1);
-        PlayerPrefs.SetInt("points", PlayerPrefs.GetInt("points", 0) - controller.jar1Cost);
+        PlayerPrefs.SetInt("Jar" + jarNo.ToString(), 1);
+        PlayerPrefs.SetInt("points", PlayerPrefs.GetInt("points", 0) - price);
         controller.pointsText.text = "Available Points: " + PlayerPrefs.GetInt("points", 0).ToString();
-        PlayerPrefs.SetInt("JarNo", 1);
+        PlayerPrefs.SetInt("JarNo", jarNo);
         controller.confirmPanel.SetActive(false);
         gameObject.SetActive(false);
-        controller.costPanel.SetActive(false);
+        controller.jarCostPanel.SetActive(false);
     }
 
-    public void jarsReject()
+    public void themesConfirm(int price)
+    {
+        CosmeticsHandler controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<CosmeticsHandler>();
+
+        PlayerPrefs.SetInt("theme", controller.ThemeCount);
+        PlayerPrefs.SetInt("points", PlayerPrefs.GetInt("points", 0) - price);
+        controller.pointsText.text = "Available Points: " + PlayerPrefs.GetInt("points", 0).ToString();
+        PlayerPrefs.SetInt("Theme" + (controller.ThemeCount + 1).ToString(), 1);
+        controller.confirmPanel.SetActive(false);
+        gameObject.SetActive(false);
+        controller.themeCostPanel.SetActive(false);
+    }
+
+    public void purchaseReject()
     {
         GameObject.FindGameObjectWithTag("GameController").GetComponent<CosmeticsHandler>().confirmPanel.SetActive(false);
     }

@@ -53,13 +53,13 @@ public class GameController : MonoBehaviour
 
     public void EndGame()
     {
-        if (playerController.points > PlayerPrefs.GetInt("HighScore"))
+        if (playerController.points > PlayerPrefs.GetInt("HighScore", 0))
         {
             PlayerPrefs.SetInt("HighScore", playerController.points);
         }
 
         EndScore.text = "Score: " + playerController.points;
-        HighScore.text = "High Score: " + PlayerPrefs.GetInt("HighScore");
+        HighScore.text = "High Score: " + PlayerPrefs.GetInt("HighScore", 0);
         PlayerPrefs.SetInt("points", PlayerPrefs.GetInt("points", 0) + playerController.points);
 
         playerController.enabled = false;

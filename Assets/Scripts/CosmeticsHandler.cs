@@ -11,10 +11,20 @@ public class CosmeticsHandler : MonoBehaviour
     public GameObject[] Jars;
     public int JarCount = 0;
 
-    [SerializeField] private Button enableButton;
+    public GameObject[] Themes;
+    public int ThemeCount = -1;
+
+    [SerializeField] private Button jarEnableButton;
+    [SerializeField] private Button themeEnableButton;
+
+    public GameObject jarCostPanel;
+    public GameObject themeCostPanel;
+
+
     public int jar1Cost = 20000;
 
-    public GameObject costPanel;
+    public int theme1Cost = 10000;
+    public int theme2Cost = 10000;
 
     public GameObject confirmPanel;
     public GameObject confirmButton;
@@ -26,12 +36,19 @@ public class CosmeticsHandler : MonoBehaviour
         pointsText.text = "Available Points: " + PlayerPrefs.GetInt("points", 0).ToString();
 
         JarCount = PlayerPrefs.GetInt("JarNo", 0);
+        ThemeCount = PlayerPrefs.GetInt("theme", -1);
         UpdateJar();
+        UpdateTheme();
+    }
+
+    private void Start()
+    {
+        GameObject.FindGameObjectWithTag("ThemeController").GetComponent<ThemeController>().UpdateTheme(PlayerPrefs.GetInt("theme", -1));
     }
 
     public void UpdateJar()
     {
-        costPanel.SetActive(false);
+        jarCostPanel.SetActive(false);
         for (int i = 0; i < Jars.Length; i++)
         {
             Jars[i].SetActive(false);
@@ -40,30 +57,85 @@ public class CosmeticsHandler : MonoBehaviour
 
         if (PlayerPrefs.GetInt("JarNo", 0) == JarCount)
         {
-            enableButton.gameObject.SetActive(false);
+            jarEnableButton.gameObject.SetActive(false);
         }
         else
         {
-            enableButton.gameObject.SetActive(true);
+            jarEnableButton.gameObject.SetActive(true);
             switch (JarCount)
             {
                 case 0:
-                    enableButton.GetComponentInChildren<TextMeshProUGUI>().text = "Enable";
+                    jarEnableButton.GetComponentInChildren<TextMeshProUGUI>().text = "Enable";
                     break;
                 case 1:
                     if (PlayerPrefs.GetInt("Jar1", 0) < 1)
                     {
-                        enableButton.GetComponentInChildren<TextMeshProUGUI>().text = "Purchase";
-                        costPanel.SetActive(true);
-                        costPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Cost:\n" + jar1Cost.ToString();
+                        jarEnableButton.GetComponentInChildren<TextMeshProUGUI>().text = "Purchase";
+                        jarCostPanel.SetActive(true);
+                        jarCostPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Cost:\n" + jar1Cost.ToString();
                     }
                     else
                     {
-                        enableButton.GetComponentInChildren<TextMeshProUGUI>().text = "Enable";
+                        jarEnableButton.GetComponentInChildren<TextMeshProUGUI>().text = "Enable";
                     }
                     break;
                 default:
-                    enableButton.GetComponentInChildren<TextMeshProUGUI>().text = "Enable";
+                    jarEnableButton.GetComponentInChildren<TextMeshProUGUI>().text = "Enable";
+                    break;
+            }
+        }
+    }
+
+    public void UpdateTheme()
+    {
+        themeCostPanel.SetActive(false);
+        for (int i = 0; i < Themes.Length; i++)
+        {
+            Themes[i].SetActive(false);
+        }
+        Themes[ThemeCount + 1].SetActive(true);
+
+        if (PlayerPrefs.GetInt("theme", 0) == ThemeCount)
+        {
+            themeEnableButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            themeEnableButton.gameObject.SetActive(true);
+            switch (ThemeCount + 1)
+            {
+                case 0:
+                    themeEnableButton.GetComponentInChildren<TextMeshProUGUI>().text = "Enable";
+                    break;
+
+                case 1:
+                    if (PlayerPrefs.GetInt("Theme1", 0) < 1)
+                    {
+                        themeEnableButton.GetComponentInChildren<TextMeshProUGUI>().text = "Purchase";
+                        themeCostPanel.SetActive(true);
+                        themeCostPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Cost:\n" + theme1Cost.ToString();
+                    }
+                    else
+                    {
+                        themeEnableButton.GetComponentInChildren<TextMeshProUGUI>().text = "Enable";
+                    }
+                    break;
+
+                case 2:
+                    if (PlayerPrefs.GetInt("Theme2", 0) < 1)
+                    {
+                        themeEnableButton.GetComponentInChildren<TextMeshProUGUI>().text = "Purchase";
+                        themeCostPanel.SetActive(true);
+                        themeCostPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Cost:\n" + theme2Cost.ToString();
+                    }
+                    else
+                    {
+                        themeEnableButton.GetComponentInChildren<TextMeshProUGUI>().text = "Enable";
+                    }
+                    break;
+
+                default:
+                    themeEnableButton.GetComponentInChildren<TextMeshProUGUI>().text = "Enable";
                     break;
             }
         }
@@ -84,6 +156,8 @@ public class CosmeticsHandler : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.R))
         {
             PlayerPrefs.SetInt("Jar1", 0);
+            PlayerPrefs.SetInt("Theme1", 0);
+            PlayerPrefs.SetInt("Theme2", 0);
         }
     }
 }
