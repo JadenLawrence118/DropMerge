@@ -1199,6 +1199,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6134755485805333429, guid: d30a2a94a52e2eb43b7549d9209b7872, type: 3}
+      propertyPath: themeID
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6748235524904508788, guid: d30a2a94a52e2eb43b7549d9209b7872, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5635,6 +5639,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1763055481}
     m_Modifications:
+    - target: {fileID: 1799239302760891723, guid: 039626bdb46d43244af88d68ff93dda7, type: 3}
+      propertyPath: themeID
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2860857315024044552, guid: 039626bdb46d43244af88d68ff93dda7, type: 3}
       propertyPath: m_Color.b
       value: 0.45490196
