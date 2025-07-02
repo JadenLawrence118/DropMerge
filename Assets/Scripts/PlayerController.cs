@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
             Instantiate(toSpawn[spawnID], objectPos, Quaternion.identity, GameObject.Find("Balls").transform);
         }
         points += mergePoints;
-        scoreCounter.text = "Score: " + points;
+        scoreCounter.text = "Score:\n" + points;
     }
 
     IEnumerator DropCooldown()
