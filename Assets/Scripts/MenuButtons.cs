@@ -203,7 +203,9 @@ public class MenuButtons : MonoBehaviour
             controller.ThemeCount = -1;
         }
         controller.UpdateTheme();
+        controller.EnableAll();
         GameObject.FindGameObjectWithTag("ThemeController").GetComponent<ThemeController>().UpdateTheme(controller.ThemeCount);
+        controller.DisableAll();
     }
 
     public void themeBack()
@@ -219,7 +221,9 @@ public class MenuButtons : MonoBehaviour
             controller.ThemeCount = controller.Themes.Length - 2;
         }
         controller.UpdateTheme();
+        controller.EnableAll();
         GameObject.FindGameObjectWithTag("ThemeController").GetComponent<ThemeController>().UpdateTheme(controller.ThemeCount);
+        controller.DisableAll();
     }
 
     public void purchaseEnable()

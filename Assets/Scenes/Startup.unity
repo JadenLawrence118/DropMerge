@@ -163,7 +163,7 @@ MonoBehaviour:
   - {r: 1, g: 0, b: 0.8683319, a: 1}
   colour3:
   - {r: 0.1981132, g: 0.1971787, b: 0.1971787, a: 1}
-  - {r: 0, g: 0, b: 0, a: 1}
+  - {r: 1, g: 0, b: 0.8666667, a: 1}
 --- !u!4 &235184538
 Transform:
   m_ObjectHideFlags: 0

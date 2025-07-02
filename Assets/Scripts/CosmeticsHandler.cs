@@ -29,6 +29,9 @@ public class CosmeticsHandler : MonoBehaviour
     public GameObject confirmPanel;
     public GameObject confirmButton;
 
+    [SerializeField] private GameObject[] possiblyDisabled;
+    public List<GameObject> disabledObjects;
+
     void Awake()
     {
         pointsText.text = "Available Points: " + PlayerPrefs.GetInt("points", 0).ToString();
@@ -138,6 +141,27 @@ public class CosmeticsHandler : MonoBehaviour
                     break;
             }
         }
+    }
+
+    public void EnableAll()
+        {
+        foreach (GameObject obj in possiblyDisabled)
+        {
+            if (!obj.activeInHierarchy)
+            {
+                obj.SetActive(true);
+                disabledObjects.Add(obj);
+            }
+        }
+    }
+
+    public void DisableAll()
+    {
+        foreach (GameObject obj in disabledObjects)
+        {
+            obj.SetActive(false);
+        }
+        disabledObjects.Clear();
     }
 
     private void Update()
