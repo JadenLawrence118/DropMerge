@@ -11,6 +11,7 @@ public class ThemeController : MonoBehaviour
     public Color[] backgroundColour;
     public Color[] colour1;
     public Color[] colour2;
+    public Color[] colour3;
 
     private void Awake()
     {
@@ -43,6 +44,9 @@ public class ThemeController : MonoBehaviour
                         break;
                     case 2:
                         gObject.UpdateColour(colour2[themeIndex]);
+                        break;
+                    case 3:
+                        gObject.UpdateColour(colour3[themeIndex]);
                         break;
                     default:
                         gObject.UpdateColour();

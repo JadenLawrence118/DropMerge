@@ -26,6 +26,8 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        GameObject.FindGameObjectWithTag("ThemeController").GetComponent<ThemeController>().UpdateTheme(PlayerPrefs.GetInt("theme", -1));
+
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 
         EndUI.SetActive(false);
@@ -41,8 +43,6 @@ public class GameController : MonoBehaviour
             jars[i].SetActive(false);
         }
         jars[PlayerPrefs.GetInt("JarNo", 0)].SetActive(true);
-
-        GameObject.FindGameObjectWithTag("ThemeController").GetComponent<ThemeController>().UpdateTheme(PlayerPrefs.GetInt("theme", -1));
     }
 
     private void Update()

@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4920628190130732980, guid: f8fc1b5553371674bbcb7216bdb7737c, type: 3}
+      propertyPath: themeID
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -4761825439320941797, guid: f8fc1b5553371674bbcb7216bdb7737c, type: 3}
       propertyPath: MergeID
       value: 8

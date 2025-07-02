@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -2706896484208045648}
   - component: {fileID: 2594707187644119394}
   - component: {fileID: -4761825439320941797}
+  - component: {fileID: -4920628190130732980}
   m_Layer: 0
   m_Name: CircleMASTER
   m_TagString: Mergeable
@@ -164,3 +165,16 @@ MonoBehaviour:
   MergeID: 0
   mergePoints: 0
   particles: {fileID: 1064271959002757071, guid: 26fb66eb10ac50b47abc75eeb6e45719, type: 3}
+--- !u!114 &-4920628190130732980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612809298591705200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688c86f1dd142be42a2f8fd7893162e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  themeID: 0
