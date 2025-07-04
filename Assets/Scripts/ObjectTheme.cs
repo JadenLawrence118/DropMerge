@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ObjectTheme : MonoBehaviour
@@ -28,18 +29,30 @@ public class ObjectTheme : MonoBehaviour
 
     public void UpdateColour(Color newColour)
     {
-        if (GetComponent<Image>() != null)
+        if (newColour.a != 0)
         {
-            GetComponent<Image>().color = newColour;
+        print(newColour.a);
 
+            if (GetComponent<Image>() != null)
+            {
+                GetComponent<Image>().color = newColour;
+
+            }
+            else if (GetComponent<TextMeshProUGUI>() != null)
+            {
+                GetComponent<TextMeshProUGUI>().color = newColour;
+            }
+            else if (GetComponent<SpriteRenderer>() != null)
+            {
+                GetComponent<SpriteRenderer>().color = newColour;
+            }
         }
-        else if (GetComponent<TextMeshProUGUI>() != null)
+        else
         {
-            GetComponent<TextMeshProUGUI>().color = newColour;
-        }
-        else if (GetComponent<SpriteRenderer>() != null)
-        {
-            GetComponent<SpriteRenderer>().color = newColour;
+            if (SceneManager.GetActiveScene().name == "Cosmetics")
+            {
+                UpdateColour();
+            }
         }
     }
 
