@@ -19,6 +19,7 @@ public class SettingsButtons : MonoBehaviour
     public void ResetScore()
     {
         PlayerPrefs.SetInt("HighScore", 0);
+        controller.HighScore.text = "High Score: " + PlayerPrefs.GetInt("HighScore");
         controller.confirmWindow.SetActive(false);
         controller.OKWindow.SetActive(true);
     }
