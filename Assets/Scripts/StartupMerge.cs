@@ -8,6 +8,10 @@ using UnityEngine.UI;
 
 public class StartupMerge : MonoBehaviour
 {
+    [SerializeField] private bool mergeStarter = false;
+    [SerializeField] private AudioSource fallSound;
+    [SerializeField] private AudioSource mergeSound;
+
     private void Start()
     {
         GameObject.FindGameObjectWithTag("ThemeController").GetComponent<ThemeController>().UpdateTheme(PlayerPrefs.GetInt("theme", -1));
@@ -18,7 +22,10 @@ public class StartupMerge : MonoBehaviour
     [SerializeField] private GameObject whitePanel;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Mergeable" && !complete)
+        fallSound.Stop();
+        mergeSound.Play();
+
+        if (collision.gameObject.tag == "Mergeable" && !complete && mergeStarter)
         {
             complete = true;
 

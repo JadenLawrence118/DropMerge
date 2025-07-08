@@ -783,12 +783,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Programming - Jaden Lawrence
-
-    Art - Jaden Lawrence
-
-    Music - Nancy
-    Sinclair'
+  m_text: "Programming - \nJaden Lawrence\n\nArt - \nJaden Lawrence\n\nMusic - \nNancy_Sinclair\n\nSound
+    Effects -\nSvennSound\nrottako\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 911ef34ad039ee24093ccd2f62244020, type: 2}
   m_sharedMaterial: {fileID: 6824027193634268840, guid: 911ef34ad039ee24093ccd2f62244020, type: 2}
