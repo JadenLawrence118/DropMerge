@@ -129,6 +129,18 @@ public class MenuButtons : MonoBehaviour
         }
     }
 
+    public void OpenCredits()
+    {
+        if (GameObject.FindGameObjectWithTag("GameController").GetComponent<FadeOutHandler>() != null)
+        {
+            StartCoroutine(FadeAndSwitch(7, GameObject.FindGameObjectWithTag("GameController").GetComponent<FadeOutHandler>().fadeToWhite));
+        }
+        else
+        {
+            SceneManager.LoadScene(7);
+        }
+    }
+
     public void PauseSettings()
     {
         pauseMenu.SetActive(false);
