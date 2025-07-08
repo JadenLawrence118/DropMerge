@@ -31,8 +31,6 @@ public class ObjectTheme : MonoBehaviour
     {
         if (newColour.a != 0)
         {
-        print(newColour.a);
-
             if (GetComponent<Image>() != null)
             {
                 GetComponent<Image>().color = newColour;

@@ -26,6 +26,8 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        GameObject.Find("AudioController").GetComponent<AudioController>().GameStart();
+
         GameObject.FindGameObjectWithTag("ThemeController").GetComponent<ThemeController>().UpdateTheme(PlayerPrefs.GetInt("theme", -1));
 
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();

@@ -26,7 +26,6 @@ public class ThemeController : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
     }
     public void UpdateTheme(int themeIndex)
     {

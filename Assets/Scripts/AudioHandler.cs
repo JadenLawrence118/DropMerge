@@ -15,13 +15,17 @@ public class AudioHandler : MonoBehaviour
     {
         if (music)
         {
-            GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("musicVol", 1);
-            print(PlayerPrefs.GetFloat("musicVol"));
+            foreach (AudioSource audio in transform.GetComponents<AudioSource>())
+            { 
+                audio.volume = PlayerPrefs.GetFloat("musicVol", 1);
+            }
         }
         else if (soundEffect)
         {
-            GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("SFXVol", 1);
-            print(PlayerPrefs.GetFloat("SFXVol"));
+            foreach (AudioSource audio in transform.GetComponents<AudioSource>())
+            { 
+                audio.volume = PlayerPrefs.GetFloat("SFXVol", 1);
+            }
         }
     }
 }

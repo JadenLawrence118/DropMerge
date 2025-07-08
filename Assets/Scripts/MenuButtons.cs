@@ -11,6 +11,15 @@ public class MenuButtons : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject settingsMenu;
+
+    private ThemeController themeController;
+    private AudioController audioController;
+
+    private void Awake()
+    {
+        themeController = GameObject.Find("ThemeController").GetComponent<ThemeController>();
+        audioController = GameObject.Find("AudioController").GetComponent<AudioController>();
+    }
     public void Play()
     {
         if (GameObject.FindGameObjectWithTag("GameController").GetComponent<FadeOutHandler>() != null)
@@ -29,6 +38,7 @@ public class MenuButtons : MonoBehaviour
         Time.timeScale = 0f;
         pauseMenu.SetActive(true);
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().enabled = false;
+        audioController.GamePause();
     }
 
     public void Resume()
@@ -36,6 +46,7 @@ public class MenuButtons : MonoBehaviour
         Time.timeScale = 1.0f;
         pauseMenu.SetActive(false);
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().enabled = true;
+        audioController.GameResume();
     }
 
     public void Restart()
@@ -204,7 +215,7 @@ public class MenuButtons : MonoBehaviour
         }
         controller.UpdateTheme();
         controller.EnableAll();
-        GameObject.FindGameObjectWithTag("ThemeController").GetComponent<ThemeController>().UpdateTheme(controller.ThemeCount);
+        themeController.UpdateTheme(controller.ThemeCount);
         controller.DisableAll();
     }
 
@@ -222,7 +233,7 @@ public class MenuButtons : MonoBehaviour
         }
         controller.UpdateTheme();
         controller.EnableAll();
-        GameObject.FindGameObjectWithTag("ThemeController").GetComponent<ThemeController>().UpdateTheme(controller.ThemeCount);
+        themeController.UpdateTheme(controller.ThemeCount);
         controller.DisableAll();
     }
 
