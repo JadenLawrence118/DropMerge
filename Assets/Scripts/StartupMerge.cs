@@ -30,11 +30,12 @@ public class StartupMerge : MonoBehaviour
             complete = true;
 
             Vector3 mergePos = (collision.transform.position + transform.position) / 2;
-            particles.transform.position = mergePos;
-            particles.Play();
+            ParticleSystem.MainModule main = particles.main;
+            main.startColor = new ParticleSystem.MinMaxGradient(Color.white);
+            Instantiate(particles, mergePos, Quaternion.identity, transform);
+
             whitePanel.GetComponent<PlayableDirector>().Play();
-            StartCoroutine(FadeAndSwitch());
-        }
+            StartCoroutine(FadeAndSwitch());        }
     }
 
     IEnumerator FadeAndSwitch()

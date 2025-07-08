@@ -10,8 +10,17 @@ public class Merge : MonoBehaviour
     [SerializeField] private int mergePoints;
     [SerializeField] private ParticleSystem particles;
 
+    [SerializeField] private AudioSource collisionSound;
+    private bool soundPlayed = false;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (!soundPlayed)
+        {
+            GetComponent<AudioSource>().Play();
+            soundPlayed = true;
+        }
+
         if (!running)
         {
             if (collision.gameObject.tag == gameObject.tag && collision.gameObject.GetComponent<Merge>().MergeID == MergeID)
