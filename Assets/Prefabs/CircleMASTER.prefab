@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -4920628190130732980}
   - component: {fileID: 6968516099949777792}
   - component: {fileID: 2811686583586865459}
+  - component: {fileID: -7199808633428421855}
   m_Layer: 0
   m_Name: CircleMASTER
   m_TagString: Mergeable
@@ -289,3 +290,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-7199808633428421855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612809298591705200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b90fc92cd77e7594a8fe99109c73a97f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music: 0
+  soundEffect: 1
