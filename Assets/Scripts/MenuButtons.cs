@@ -277,6 +277,22 @@ public class MenuButtons : MonoBehaviour
                         gameObject.SetActive(false);
                     }
                     break;
+                case 2:
+                    if (PlayerPrefs.GetInt("Jar2", 0) < 1)
+                    {
+                        if (PlayerPrefs.GetInt("points", 0) >= controller.jar2Cost)
+                        {
+                            controller.confirmPanel.SetActive(true);
+                            controller.confirmButton.GetComponent<Button>().onClick.RemoveAllListeners();
+                            controller.confirmButton.GetComponent<Button>().onClick.AddListener(() => jarsConfirm(2, controller.jar2Cost));
+                        }
+                    }
+                    else
+                    {
+                        PlayerPrefs.SetInt("JarNo", 2);
+                        gameObject.SetActive(false);
+                    }
+                    break;
                 default:
                     PlayerPrefs.SetInt("JarNo", 0);
                     gameObject.SetActive(false);

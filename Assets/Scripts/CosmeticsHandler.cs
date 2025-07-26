@@ -22,6 +22,7 @@ public class CosmeticsHandler : MonoBehaviour
 
 
     public int jar1Cost = 20000;
+    public int jar2Cost = 20000;
 
     public int theme1Cost = 10000;
     public int theme2Cost = 10000;
@@ -75,6 +76,18 @@ public class CosmeticsHandler : MonoBehaviour
                         jarEnableButton.GetComponentInChildren<TextMeshProUGUI>().text = "Purchase";
                         jarCostPanel.SetActive(true);
                         jarCostPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Cost:\n" + jar1Cost.ToString();
+                    }
+                    else
+                    {
+                        jarEnableButton.GetComponentInChildren<TextMeshProUGUI>().text = "Enable";
+                    }
+                    break;
+                case 2:
+                    if (PlayerPrefs.GetInt("Jar2", 0) < 1)
+                    {
+                        jarEnableButton.GetComponentInChildren<TextMeshProUGUI>().text = "Purchase";
+                        jarCostPanel.SetActive(true);
+                        jarCostPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Cost:\n" + jar2Cost.ToString();
                     }
                     else
                     {
